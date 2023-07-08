@@ -1,4 +1,8 @@
 # https://stackoverflow.com/questions/2466401/how-to-generate-ssh-key-pairs-with-python
+
+
+import rsa
+
 # Generate RSA key pair
 def generate_key_pair():
     public_key, private_key = rsa.newkeys(2048)
