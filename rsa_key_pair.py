@@ -60,5 +60,5 @@ def main():
     decrypted_file_path = decrypt_file(encrypted_file_path, private_key)
     print(f"File decrypted successfully. Decrypted file: {decrypted_file_path}")
 
-if __name__ == '__main__'::
-
+if __name__ == '__main__':
+    main()
