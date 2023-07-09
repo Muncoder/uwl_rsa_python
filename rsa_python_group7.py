@@ -41,37 +41,13 @@ def decrypt_file(encrypted_file_path, private_key):
         decrypted_file.write(decrypted_data)
         return decrypted_file_path
 
-
-
-
 # main methods to 
 # 1. generate public and private keys
 # 2. save public and private keys on tbhe current folder
 # 3. encrypt file
 # 4. decrypt file
 def main():
-    while True:
-        # os.system('clear')
-        print()
-        print('*********************************************')
-        print('****************** M E N U ******************')
-        print('* [1] Generate Public & Private key         *')
-        print('* [2] Encrypt a file                        *')
-        print('* [3] Decrypt a file                        *')
-        print('*********************************************')
-        print()
-
-        user_input = input("Select your option: ")
-        if user_input == '1':
-            print("You selected 1")
-        elif user_input == '2':
-            print("You selected 2")
-        elif user_input == '3':
-            print("You selected 3")
-        elif user_input == '0':
-            break
-
-
+    encrypted_file_path = ''
 
     # # Check RSA key pair files exit
     if not os.path.isfile('public_key.pem') or not os.path.isfile('private_key.pem'):
@@ -84,14 +60,48 @@ def main():
     public_key, private_key = load_key_pair()
     print("Loaded RSA key pair.")
 
-    # Encrypt file
-    file_path = r"plain_text_to_encrypt.txt"
-    encrypted_file_path = encrypt_file(file_path, public_key)
-    print(f"File encrypted successfully. Encrypted file: {encrypted_file_path}")
+    os.system('clear')
 
-    # Decrypt file
-    decrypted_file_path = decrypt_file(encrypted_file_path, private_key)
-    print(f"File decrypted successfully. Decrypted file: {decrypted_file_path}")
+    while True:
+        # os.system('clear')
+        print()
+        print('*********************************************')
+        print('****************** M E N U ******************')
+        print('* [1] Encrypt a file                        *')
+        print('* [2] Decrypt the encrypted file            *')
+        print('* [0] Exit                                  *')
+        print('*********************************************')
+        print()
+
+        user_input = input("Select your option: ")
+        if user_input == '1':
+            # Encrypt file
+
+            file_to_encrypt = input("Enter text file name to encrypt: ")
+
+            # breakpoint()
+
+            if os.path.isfile(file_to_encrypt) == True:
+                print("Text File exists")
+                # file_path = r"plain_text_to_encrypt.txt"
+                file_path = file_to_encrypt
+                encrypted_file_path = encrypt_file(file_path, public_key)
+                print(f"File encrypted successfully. Encrypted file: {encrypted_file_path}")
+            elif file_to_encrypt == '0':
+                break
+            else:
+                print("Text File is not exists")
+        elif user_input == '2':
+            # breakpoint()
+            if encrypted_file_path != '':
+                # Decrypt file
+                decrypted_file_path = decrypt_file(encrypted_file_path, private_key)
+                print(f"File decrypted successfully. Decrypted file: {decrypted_file_path}")
+            else:
+                print("No file encrypted yet. Need to encrypt the file first to decrypt.")
+        elif user_input == '0':
+            print("Thank you for using this program.")
+            break
 
 if __name__ == '__main__':
     main()
