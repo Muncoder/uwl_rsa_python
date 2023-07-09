@@ -41,35 +41,17 @@ def decrypt_file(encrypted_file_path, private_key):
         decrypted_file.write(decrypted_data)
         return decrypted_file_path
 
-
-
-
 # main methods to 
 # 1. generate public and private keys
 # 2. save public and private keys on tbhe current folder
 # 3. encrypt file
 # 4. decrypt file
 def main():
-    while True:
-        # os.system('clear')
-        print()
-        print('*********************************************')
-        print('****************** M E N U ******************')
-        print('* [1] Generate Public & Private key         *')
-        print('* [2] Encrypt a file                        *')
-        print('* [3] Decrypt a file                        *')
-        print('*********************************************')
-        print()
 
-        user_input = input("Select your option: ")
-        if user_input == '1':
-            print("You selected 1")
-        elif user_input == '2':
-            print("You selected 2")
-        elif user_input == '3':
-            print("You selected 3")
-        elif user_input == '0':
-            break
+    
+    input("Select your option: ")
+
+
 
 
 
@@ -85,7 +67,7 @@ def main():
     print("Loaded RSA key pair.")
 
     # Encrypt file
-    file_path = r"plain_text_to_encrypt.txt"
+    file_path = r"testrsa.txt"
     encrypted_file_path = encrypt_file(file_path, public_key)
     print(f"File encrypted successfully. Encrypted file: {encrypted_file_path}")
 
