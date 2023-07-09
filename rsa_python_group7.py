@@ -1,5 +1,3 @@
-# https://stackoverflow.com/questions/2466401/how-to-generate-ssh-key-pairs-with-python
-
 import rsa
 import os
 
@@ -43,36 +41,26 @@ def decrypt_file(encrypted_file_path, private_key):
         decrypted_file.write(decrypted_data)
         return decrypted_file_path
 
-# Example usage
+# main methods to 
+# 1. generate public and private keys
+# 2. save public and private keys on tbhe current folder
+# 3. encrypt file
+# 4. decrypt file
 def main():
     # # Check RSA key pair files exit
     if not os.path.isfile('public_key.pem') or not os.path.isfile('private_key.pem'):
+        # Generate new key pair if files do not exist.
         public_key, private_key = generate_key_pair() 
         save_key_pair(public_key, private_key)
-        print("Generated RSA key pair.")
+        print("Generated RSA key pair and saved on the current folder.")
     
-    # # Load RSA key pair from files
+    # Load RSA key pair from files
     public_key, private_key = load_key_pair()
-    # print("Loaded RSA key pair.")
-
-
-    # # # by Munir -- START -----
-    # public_key, private_key = generate_key_pair() 
-    # save_key_pair(public_key, private_key)
-
-    # print(public_key)
-    # print(private_key)
-    # print("HELLO")
-    # # # by Munir -- END -------
-
+    print("Loaded RSA key pair.")
 
     # Encrypt file
-    file_path = r"testrsa.txt"
-
-    # breakpoint()
-    
+    file_path = r"plain_text_to_encrypt.txt"
     encrypted_file_path = encrypt_file(file_path, public_key)
-    # encrypted_file_path = encrypt_file("/Users/munir/Munir/code_mun/uwl_code/python-cryptography/testrsa.txt", public_key)
     print(f"File encrypted successfully. Encrypted file: {encrypted_file_path}")
 
     # Decrypt file
