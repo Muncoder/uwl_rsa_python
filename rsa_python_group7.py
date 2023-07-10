@@ -64,13 +64,28 @@ def main():
 
     while True:
         # os.system('clear')
-        print()
-        print('*********************************************')
-        print('****************** M E N U ******************')
-        print('* [1] Encrypt a file                        *')
-        print('* [2] Decrypt the encrypted file            *')
-        print('* [0] Exit                                  *')
-        print('*********************************************')
+        print('##############################################################')
+        print('* Module / Code : Applied Cryptography / CP5SA87E            *')
+        print('* Module Leader : Dr. Waqar Asif                             *')
+        print('* Assignment 1  : Crypto RSA by Python Programming Language  *')
+        print('* Developed by  : Group7                                     *')
+        print('* ---------------------------------------------------------- *')
+        print('* Student ID    : 21575537, MOHAMMAD MUNIR UDDIN             *')
+        print('* Student ID    : 21577165, MOHAMED CHARIF CHAIRI BENAICHA   *')
+        print('* Student ID    : 21588720, ABU BAKARR KARGBO, ABU BAKKAR    *')
+        print('* Student ID    : 21580794, SABA SULTANA                     *')
+        print('* Group name    : Group7                                     *')
+        # print('* ---------------------------------------------------------- *')
+        print('**************************** M E N U *************************')
+        print('* [1] Encrypt a file                                         *')
+        print('* [2] Decrypt the encrypted file                             *')
+        print('* ---------------------------------------------------------- *')
+        print('* [3] Show file content before encryption                    *')
+        print('* [4] Show file content after encryption                     *')
+        print('* [5] Show file content after decryption                     *')
+        print('* ---------------------------------------------------------- *')
+        print('* [0] Exit                                                   *')
+        print('**************************************************************')
         print()
 
         user_input = input("Select your option: ")
@@ -90,7 +105,12 @@ def main():
             elif file_to_encrypt == '0':
                 break
             else:
+                print("----------------------------------------------------------------------------------------------------------------------")
                 print("Text File is not exists")
+                print("----------------------------------------------------------------------------------------------------------------------")
+                print()
+                print()
+
         elif user_input == '2':
             # breakpoint()
             if encrypted_file_path != '':
