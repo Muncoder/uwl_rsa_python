@@ -48,6 +48,9 @@ def decrypt_file(encrypted_file_path, private_key):
 # 4. decrypt file
 def main():
     encrypted_file_path = ''
+    file_to_encrypt = ''
+    encrypted_file_path = ''
+    decrypted_file_path = ''
 
     # # Check RSA key pair files exit
     if not os.path.isfile('public_key.pem') or not os.path.isfile('private_key.pem'):
@@ -72,7 +75,7 @@ def main():
         print('*                                                              *')
         print('* Student ID/Name : 21575537, MOHAMMAD MUNIR UDDIN             *')
         print('* Student ID/Name : 21577165, MOHAMED CHARIF CHAIRI BENAICHA   *')
-        print('* Student ID/Name : 21588720, ABU BAKARR KARGBO, ABU BAKKAR    *')
+        print('* Student ID/Name : 21588720, ABU BAKARR KARGBO                *')
         print('* Student ID/Name : 21580794, SABA SULTANA                     *')
         # print('* ---------------------------------------------------------- *')
         print('**************************** M E N U ***************************')
@@ -90,14 +93,14 @@ def main():
             # Encrypt file
             file_to_encrypt = input("Enter text file name to encrypt: ")
 
-            file_to_encrypt = os.path.join("encrypts/", file_to_encrypt)
+            file_to_encrypt = os.path.join("files/", file_to_encrypt)
 
             # breakpoint()
 
             if os.path.isfile(file_to_encrypt) == True:
                 print("Text File exists")
                 # file_path = file_to_encrypt
-                # file_path = os.path.join("encrypts/", file_to_encrypt)
+                # file_path = os.path.join("files/", file_to_encrypt)
 
                 encrypted_file_path = encrypt_file(file_to_encrypt, public_key)
                 print(f"File encrypted successfully. Encrypted file: {encrypted_file_path}")
@@ -109,9 +112,7 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------")
                 print()
                 print()
-
         elif user_input == '2':
-            # breakpoint()
             if encrypted_file_path != '':
                 # Decrypt file
                 decrypted_file_path = decrypt_file(encrypted_file_path, private_key)
@@ -122,10 +123,61 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------")
                 print()
                 print()
-
+        elif user_input == '3':
+            if file_to_encrypt != '':
+                # Show txt file content
+                if os.path.isfile(file_to_encrypt) == True:
+                    f = open(file_to_encrypt, 'r')
+                    file_contents = f.read()
+                    print("----------------------------------------------------------------------------------------------------------------------")
+                    print("")
+                    print (file_contents)
+                    print("----------------------------------------------------------------------------------------------------------------------")
+                    print("")
+            else:
+                print("----------------------------------------------------------------------------------------------------------------------")
+                print("No txt file selected yet. Select the txt file first")
+                print("----------------------------------------------------------------------------------------------------------------------")
+                print()
+                print()
+        elif user_input == '4':
+            if file_to_encrypt != '':
+                # Show encrypted file content
+                if os.path.isfile(file_to_encrypt) == True:
+                    f = open(encrypted_file_path, 'r')
+                    file_contents = f.read()
+                    print("----------------------------------------------------------------------------------------------------------------------")
+                    print("")
+                    print (file_contents)
+                    print("----------------------------------------------------------------------------------------------------------------------")
+                    print("")
+            else:
+                print("----------------------------------------------------------------------------------------------------------------------")
+                print("No txt file selected yet. Select the txt file first")
+                print("----------------------------------------------------------------------------------------------------------------------")
+                print()
+                print()
+        elif user_input == '5':
+            if decrypted_file_path != '':
+                # Show decrypted file content
+                if os.path.isfile(decrypted_file_path) == True:
+                    f = open(decrypted_file_path, 'r')
+                    file_contents = f.read()
+                    print("----------------------------------------------------------------------------------------------------------------------")
+                    print("")
+                    print (file_contents)
+                    print("----------------------------------------------------------------------------------------------------------------------")
+                    print("")
+            else:
+                print("----------------------------------------------------------------------------------------------------------------------")
+                print("No File Decrypted Yet. Decrypt a file first to view its content.")
+                print("----------------------------------------------------------------------------------------------------------------------")
+                print()
+                print()
         elif user_input == '0':
             print("Thank you for using this program.")
             break
 
 if __name__ == '__main__':
     main()
+
