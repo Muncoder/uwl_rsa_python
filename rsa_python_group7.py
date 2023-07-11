@@ -43,6 +43,32 @@ def decrypt_file(encrypted_file_path, private_key):
         decrypted_file.write(decrypted_data)
         return decrypted_file_path
 
+#Main Menu
+def main_menu():
+    # os.system('clear')
+    # return "hello"
+    print('################################################################')
+    print('* Module / Code   : Applied Cryptography / CP5SA87E            *')
+    print('* Module Leader   : Dr. Waqar Asif                             *')
+    print('* Assignment 1    : Crypto RSA by Python Programming Language  *')
+    print('* Developed by    : Group7                                     *')
+    print('*                                                              *')
+    print('* Student ID/Name : 21575537, MOHAMMAD MUNIR UDDIN             *')
+    print('* Student ID/Name : 21577165, MOHAMED CHARIF CHAIRI BENAICHA   *')
+    print('* Student ID/Name : 21588720, ABU BAKARR KARGBO                *')
+    print('* Student ID/Name : 21580794, SABA SULTANA                     *')
+    # print('* ---------------------------------------------------------- *')
+    print('**************************** M E N U ***************************')
+    print('* [ 1 ] Show available txt files                               *')
+    print('* [ 2 ] Encrypt a file                                         *')
+    print('* [ 3 ] Decrypt the encrypted file                             *')
+    print('* [ 4 ] Show file content before encryption                    *')
+    print('* [ 5 ] Show file content after encryption                     *')
+    print('* [ 6 ] Show file content after decryption                     *')
+    print('* [ 0 ] Exit                                                   *')
+    print('****************************************************************')
+    print("")
+
 # main method for:
 # -------------------------------------------------------
 # 1. generate public and private keys
@@ -67,31 +93,10 @@ def main():
     public_key, private_key = load_key_pair()
     print("Loaded RSA key pair.")
 
-    os.system('clear')
+    # os.system('clear')
 
     while True:
-        # os.system('clear')
-        print('################################################################')
-        print('* Module / Code   : Applied Cryptography / CP5SA87E            *')
-        print('* Module Leader   : Dr. Waqar Asif                             *')
-        print('* Assignment 1    : Crypto RSA by Python Programming Language  *')
-        print('* Developed by    : Group7                                     *')
-        print('*                                                              *')
-        print('* Student ID/Name : 21575537, MOHAMMAD MUNIR UDDIN             *')
-        print('* Student ID/Name : 21577165, MOHAMED CHARIF CHAIRI BENAICHA   *')
-        print('* Student ID/Name : 21588720, ABU BAKARR KARGBO                *')
-        print('* Student ID/Name : 21580794, SABA SULTANA                     *')
-        # print('* ---------------------------------------------------------- *')
-        print('**************************** M E N U ***************************')
-        print('* [ 1 ] Show available txt files                               *')
-        print('* [ 2 ] Encrypt a file                                         *')
-        print('* [ 3 ] Decrypt the encrypted file                             *')
-        print('* [ 4 ] Show file content before encryption                    *')
-        print('* [ 5 ] Show file content after encryption                     *')
-        print('* [ 6 ] Show file content after decryption                     *')
-        print('* [ 0 ] Exit                                                   *')
-        print('****************************************************************')
-        print()
+        main_menu()
 
         user_input = input("Select your option: ")
         if user_input == '1':
@@ -100,6 +105,7 @@ def main():
                 txtfiles.append(os.path.basename(file))
 
             if (len(txtfiles) > 0):
+                # main_menu()
                 for file_name in txtfiles:
                     f = file_name.split(".")        
                     if len(f) <= 2:
