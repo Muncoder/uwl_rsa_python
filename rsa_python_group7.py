@@ -41,11 +41,13 @@ def decrypt_file(encrypted_file_path, private_key):
         decrypted_file.write(decrypted_data)
         return decrypted_file_path
 
-# main methods to 
+# main method for:
+# -------------------------------------------------------
 # 1. generate public and private keys
-# 2. save public and private keys on tbhe current folder
-# 3. encrypt file
-# 4. decrypt file
+# 2. save public and private keys on the current folder
+# 3. txt files available to encrypt on the folder "files"
+# 4. encrypt file on the folder "files"
+# 5. decrypt file on the folder "files"
 def main():
     encrypted_file_path = ''
     file_to_encrypt = ''
@@ -144,11 +146,13 @@ def main():
             if file_to_encrypt != '':
                 # Show encrypted file content
                 if os.path.isfile(file_to_encrypt) == True:
-                    f = open(encrypted_file_path, 'r')
-                    file_contents = f.read()
+                    # f = open(encrypted_file_path, 'r')
+                    # file_contents = f.read()
+                    command = "cat " + encrypted_file_path
+                    os.system(command)
                     print("----------------------------------------------------------------------------------------------------------------------")
                     print("")
-                    print (file_contents)
+                    # print (file_contents)
                     print("----------------------------------------------------------------------------------------------------------------------")
                     print("")
             else:
