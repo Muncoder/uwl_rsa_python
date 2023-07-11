@@ -47,26 +47,24 @@ def decrypt_file(encrypted_file_path, private_key):
 def main_menu():
     # os.system('clear')
     # return "hello"
-    print('################################################################')
-    print('* Module / Code   : Applied Cryptography / CP5SA87E            *')
-    print('* Module Leader   : Dr. Waqar Asif                             *')
-    print('* Assignment 1    : Crypto RSA by Python Programming Language  *')
-    print('* Developed by    : Group7                                     *')
-    print('*                                                              *')
-    print('* Student ID/Name : 21575537, MOHAMMAD MUNIR UDDIN             *')
-    print('* Student ID/Name : 21577165, MOHAMED CHARIF CHAIRI BENAICHA   *')
-    print('* Student ID/Name : 21588720, ABU BAKARR KARGBO                *')
-    print('* Student ID/Name : 21580794, SABA SULTANA                     *')
-    # print('* ---------------------------------------------------------- *')
-    print('**************************** M E N U ***************************')
-    print('* [ 1 ] Show available txt files                               *')
-    print('* [ 2 ] Encrypt a file                                         *')
-    print('* [ 3 ] Decrypt the encrypted file                             *')
-    print('* [ 4 ] Show file content before encryption                    *')
-    print('* [ 5 ] Show file content after encryption                     *')
-    print('* [ 6 ] Show file content after decryption                     *')
-    print('* [ 0 ] Exit                                                   *')
-    print('****************************************************************')
+    print('---------------------------------------------------------------------------------------------------')
+    print('* Module / Code : Applied Cryptography / CP5SA87E       |     Assignment 1 : Crypto RSA by Python *')
+    print('* Module Leader : Dr. Waqar Asif                        |     Developed by : Group7               *')
+    print('* ----------------------------------------------------------------------------------------------- *')
+    print('* Student ID/Name : 21575537, MOHAMMAD MUNIR UDDIN                                                *')
+    print('* Student ID/Name : 21577165, MOHAMED CHARIF CHAIRI BENAICHA                                      *')
+    print('* Student ID/Name : 21588720, ABU BAKARR KARGBO                                                   *')
+    print('* Student ID/Name : 21580794, SABA SULTANA                                                        *')
+    # print('* --------------------------------------------------------------------------------------------- *')
+    print('********************************************** M E N U ********************************************')
+    print('* [ 1 ] Show available txt files                                                                  *')
+    print('* [ 2 ] Encrypt a file                                                                            *')
+    print('* [ 3 ] Decrypt the encrypted file                                                                *')
+    print('* [ 4 ] Show file content before encryption                                                       *')
+    print('* [ 5 ] Show file content after encryption                                                        *')
+    print('* [ 6 ] Show file content after decryption                                                        *')
+    print('* [ 0 ] Exit                                                                                      *')
+    print('***************************************************************************************************')
     print("")
 
 # main method for:
@@ -113,24 +111,14 @@ def main():
             else:
                 print("No txt file found.")
 
-            # print(len(txtfiles))
-            # print(os.path.basename(txtfiles[0]))
-            # print(os.path.basename(txtfiles[1]))
-
-
-
         if user_input == '2':
             # Encrypt file
             file_to_encrypt = input("Enter text file name to encrypt: ")
 
             file_to_encrypt = os.path.join("files/", file_to_encrypt)
 
-            # breakpoint()
-
             if os.path.isfile(file_to_encrypt) == True:
                 print("Text File exists")
-                # file_path = file_to_encrypt
-                # file_path = os.path.join("files/", file_to_encrypt)
 
                 encrypted_file_path = encrypt_file(file_to_encrypt, public_key)
                 print(f"File encrypted successfully. Encrypted file: {encrypted_file_path}")
@@ -207,9 +195,15 @@ def main():
                 print()
                 print()
         elif user_input == '0':
-            print("Thank you for using this program.")
+            print("###########################################################")
+            print("#                                                         #")
+            print("#  Thank you for using this program, Crypto RSA by Python #")
+            print("#  Developed by  : Group7                                 #")
+            print("#  Module        : Applied Cryptography / CP5SA87E        #")
+            print("#  Module Leader : Dr. Waqar Asif                         #")
+            print("#                                                         #")
+            print("###########################################################")
             break
 
 if __name__ == '__main__':
     main()
-
