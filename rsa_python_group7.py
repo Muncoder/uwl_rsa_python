@@ -1,5 +1,7 @@
 import rsa
 import os
+import glob
+from pathlib import Path
 
 # Generate RSA key pair
 def generate_key_pair():
@@ -81,17 +83,37 @@ def main():
         print('* Student ID/Name : 21580794, SABA SULTANA                     *')
         # print('* ---------------------------------------------------------- *')
         print('**************************** M E N U ***************************')
-        print('* [ 1 ] Encrypt a file                                         *')
-        print('* [ 2 ] Decrypt the encrypted file                             *')
-        print('* [ 3 ] Show file content before encryption                    *')
-        print('* [ 4 ] Show file content after encryption                     *')
-        print('* [ 5 ] Show file content after decryption                     *')
+        print('* [ 1 ] Show available txt files                               *')
+        print('* [ 2 ] Encrypt a file                                         *')
+        print('* [ 3 ] Decrypt the encrypted file                             *')
+        print('* [ 4 ] Show file content before encryption                    *')
+        print('* [ 5 ] Show file content after encryption                     *')
+        print('* [ 6 ] Show file content after decryption                     *')
         print('* [ 0 ] Exit                                                   *')
         print('****************************************************************')
         print()
 
         user_input = input("Select your option: ")
         if user_input == '1':
+            txtfiles = []
+            for file in glob.glob("files/*.txt"):
+                txtfiles.append(os.path.basename(file))
+
+            if (len(txtfiles) > 0):
+                for file_name in txtfiles:
+                    f = file_name.split(".")        
+                    if len(f) <= 2:
+                        print(f[0] + "." + f[1])
+            else:
+                print("No txt file found.")
+
+            # print(len(txtfiles))
+            # print(os.path.basename(txtfiles[0]))
+            # print(os.path.basename(txtfiles[1]))
+
+
+
+        if user_input == '2':
             # Encrypt file
             file_to_encrypt = input("Enter text file name to encrypt: ")
 
@@ -114,7 +136,7 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------")
                 print()
                 print()
-        elif user_input == '2':
+        elif user_input == '3':
             if encrypted_file_path != '':
                 # Decrypt file
                 decrypted_file_path = decrypt_file(encrypted_file_path, private_key)
@@ -125,7 +147,7 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------")
                 print()
                 print()
-        elif user_input == '3':
+        elif user_input == '4':
             if file_to_encrypt != '':
                 # Show txt file content
                 if os.path.isfile(file_to_encrypt) == True:
@@ -142,7 +164,7 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------")
                 print()
                 print()
-        elif user_input == '4':
+        elif user_input == '5':
             if file_to_encrypt != '':
                 # Show encrypted file content
                 if os.path.isfile(file_to_encrypt) == True:
@@ -161,7 +183,7 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------")
                 print()
                 print()
-        elif user_input == '5':
+        elif user_input == '6':
             if decrypted_file_path != '':
                 # Show decrypted file content
                 if os.path.isfile(decrypted_file_path) == True:
