@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  python_rsa:
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/python-rsa
+    command: python ./rsa_python_group7.py
+
+# docker-compose up
+# docker-compose run python_rsa
