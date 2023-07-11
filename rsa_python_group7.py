@@ -69,37 +69,37 @@ def main():
         print('* Module Leader   : Dr. Waqar Asif                             *')
         print('* Assignment 1    : Crypto RSA by Python Programming Language  *')
         print('* Developed by    : Group7                                     *')
-        print('* ------------------------------------------------------------ *')
+        print('*                                                              *')
         print('* Student ID/Name : 21575537, MOHAMMAD MUNIR UDDIN             *')
         print('* Student ID/Name : 21577165, MOHAMED CHARIF CHAIRI BENAICHA   *')
         print('* Student ID/Name : 21588720, ABU BAKARR KARGBO, ABU BAKKAR    *')
         print('* Student ID/Name : 21580794, SABA SULTANA                     *')
         # print('* ---------------------------------------------------------- *')
         print('**************************** M E N U ***************************')
-        print('* [1] Encrypt a file                                           *')
-        print('* [2] Decrypt the encrypted file                               *')
-        print('* ------------------------------------------------------------ *')
-        print('* [3] Show file content before encryption                      *')
-        print('* [4] Show file content after encryption                       *')
-        print('* [5] Show file content after decryption                       *')
-        print('* ------------------------------------------------------------ *')
-        print('* [0] Exit                                                     *')
+        print('* [ 1 ] Encrypt a file                                         *')
+        print('* [ 2 ] Decrypt the encrypted file                             *')
+        print('* [ 3 ] Show file content before encryption                    *')
+        print('* [ 4 ] Show file content after encryption                     *')
+        print('* [ 5 ] Show file content after decryption                     *')
+        print('* [ 0 ] Exit                                                   *')
         print('****************************************************************')
         print()
 
         user_input = input("Select your option: ")
         if user_input == '1':
             # Encrypt file
-
             file_to_encrypt = input("Enter text file name to encrypt: ")
+
+            file_to_encrypt = os.path.join("encrypts/", file_to_encrypt)
 
             # breakpoint()
 
             if os.path.isfile(file_to_encrypt) == True:
                 print("Text File exists")
-                # file_path = r"plain_text_to_encrypt.txt"
-                file_path = file_to_encrypt
-                encrypted_file_path = encrypt_file(file_path, public_key)
+                # file_path = file_to_encrypt
+                # file_path = os.path.join("encrypts/", file_to_encrypt)
+
+                encrypted_file_path = encrypt_file(file_to_encrypt, public_key)
                 print(f"File encrypted successfully. Encrypted file: {encrypted_file_path}")
             elif file_to_encrypt == '0':
                 break
@@ -122,8 +122,6 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------")
                 print()
                 print()
-
-
 
         elif user_input == '0':
             print("Thank you for using this program.")
