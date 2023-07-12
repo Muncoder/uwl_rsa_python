@@ -8,5 +8,7 @@ services:
       - .:/python-rsa
     command: python ./rsa_python_group7.py
 
-# docker-compose up
+# run the program
 # docker-compose run python_rsa
+
+# docker-compose up
