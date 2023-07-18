@@ -1,7 +1,6 @@
 import rsa
 import os
 import glob
-from pathlib import Path
 
 # Generate RSA key pair
 def generate_key_pair():
