@@ -44,8 +44,6 @@ def decrypt_file(encrypted_file_path, private_key):
 
 #Main Menu
 def main_menu():
-    # os.system('clear')
-    # return "hello"
     print('---------------------------------------------------------------------------------------------------')
     print('* Module / Code : Applied Cryptography / CP5SA87E       |     Assignment 1 : Crypto RSA by Python *')
     print('* Module Leader : Dr. Waqar Asif                        |     Developed by : Group7               *')
@@ -89,8 +87,6 @@ def main():
     # Load RSA key pair from files
     public_key, private_key = load_key_pair()
     print("Loaded RSA key pair.")
-
-    # os.system('clear')
 
     while True:
         main_menu()
